@@ -59,9 +59,6 @@
       export BUN_INSTALL="$HOME/.bun"
       export PATH="$BUN_INSTALL/bin:$PATH"
       [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
-
-      # --- Opencode custom bin ---
-      export PATH=$HOME/.opencode/bin:$PATH
     '';
   };
 
@@ -77,14 +74,6 @@
     enableZshIntegration = true;
   };
 
-  programs.vscode = {
-    enable = true;
-    profiles.default.extensions = with pkgs.vscode-extensions; [
-      rust-lang.rust-analyzer
-      yzhang.markdown-all-in-one
-      enkia.tokyo-night
-      docker.docker
-      llvm-vs-code-extensions.vscode-clangd
-    ];
-  };
+  programs.vscode.enable = true;
+
 }

@@ -49,6 +49,8 @@
       rustup
       nodejs_latest
       bun
+      protobuf
+      buf
     ];
     shell = pkgs.zsh;
   };
