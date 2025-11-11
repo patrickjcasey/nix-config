@@ -51,6 +51,7 @@
       bun
       protobuf
       buf
+      neovim
     ];
     shell = pkgs.zsh;
   };
@@ -62,13 +63,13 @@
     wget
     curl
     ghostty
-    neovim
     stow
     jq
     fzf
     cmake
     ripgrep
     python3
+    unzip
   ];
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];

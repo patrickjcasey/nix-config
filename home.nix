@@ -54,11 +54,6 @@
 
       # --- zoxide ---
       eval "$(zoxide init zsh --cmd cd)"
-
-      # --- Bun setup ---
-      export BUN_INSTALL="$HOME/.bun"
-      export PATH="$BUN_INSTALL/bin:$PATH"
-      [ -s "$BUN_INSTALL/_bun" ] && source "$BUN_INSTALL/_bun"
     '';
   };
 
@@ -75,5 +70,7 @@
   };
 
   programs.vscode.enable = true;
+  programs.fastfetch.enable = true;
+  #  programs.opencode.enable=true;
 
 }
