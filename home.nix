@@ -34,11 +34,8 @@
       SAVEHIST=100000
 
       # --- Environment variables ---
-      export VIM="nvim"
       export XDG_CONFIG_HOME=$HOME/.config
-      export GIT_EDITOR=$VIM
       export DOTFILES=$HOME/.dotfiles
-      export NIX_CONFIG=$HOME/nix-config
       export PATH="$HOME/.cargo/bin:$HOME/.rustup/bin:$PATH"
 
       # --- fzf integration (Nix version) ---
@@ -62,6 +59,7 @@
     settings.user.name = "Patrick Casey";
     settings.user.email = "patrick.casey1@outlook.com";
     settings.init.defaultBranch = "main";
+    extraConfig = { core.editor = "nvim"; };
   };
 
   programs.fzf = {
@@ -72,5 +70,11 @@
   programs.vscode.enable = true;
   programs.fastfetch.enable = true;
   #  programs.opencode.enable=true;
+  programs.tmux.enable = true;
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    vimAlias = true;
+  };
 }

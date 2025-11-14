@@ -40,7 +40,6 @@
     extraGroups = [ "wheel" ];
     packages = with pkgs; [
       tree
-      tmux
       gcc
       clang
       lazygit
@@ -51,7 +50,9 @@
       bun
       protobuf
       buf
-      neovim
+      gnumake
+      ghostty
+      cmake
     ];
     shell = pkgs.zsh;
   };
@@ -62,11 +63,9 @@
     vim
     wget
     curl
-    ghostty
     stow
     jq
     fzf
-    cmake
     ripgrep
     python3
     unzip
