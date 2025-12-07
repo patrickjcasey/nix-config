@@ -11,6 +11,7 @@
     syntaxHighlighting.enable = true;
     shellAliases = {
       reload-nix = "sudo nixos-rebuild --flake ~/nix-config#octane switch";
+      upgrade-nix = "sudo nixos-rebuild switch --upgrade";
     };
     initContent = ''
       # Load Cargo environment if present
