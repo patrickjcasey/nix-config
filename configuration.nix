@@ -53,6 +53,8 @@
       gnumake
       ghostty
       cmake
+      trunk
+      tmux
     ];
     shell = pkgs.zsh;
   };

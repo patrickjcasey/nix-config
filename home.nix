@@ -70,7 +70,6 @@
   programs.vscode.enable = true;
   programs.fastfetch.enable = true;
   #  programs.opencode.enable=true;
-  programs.tmux.enable = true;
 
   programs.neovim = {
     enable = true;
