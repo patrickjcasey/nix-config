@@ -55,6 +55,7 @@
       cmake
       trunk
       tmux
+      killall
     ];
     shell = pkgs.zsh;
   };
