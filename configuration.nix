@@ -56,6 +56,7 @@
       trunk
       tmux
       killall
+      biome
     ];
     shell = pkgs.zsh;
   };
