@@ -60,7 +60,7 @@
     settings.user.name = "Patrick Casey";
     settings.user.email = "patrick.casey1@outlook.com";
     settings.init.defaultBranch = "main";
-    extraConfig = { core.editor = "nvim"; };
+    settings.core.editor = "nvim";
   };
 
   programs.fzf = {
