@@ -73,6 +73,7 @@
     ripgrep
     python3
     unzip
+    zsh
   ];
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
