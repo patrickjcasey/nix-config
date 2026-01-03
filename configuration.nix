@@ -74,6 +74,7 @@
     python3
     unzip
     zsh
+    docker
   ];
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
