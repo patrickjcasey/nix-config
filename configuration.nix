@@ -37,7 +37,7 @@
   programs.zsh.enable = true;
   users.users.trick = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
     packages = with pkgs; [
       tree
       gcc
@@ -76,6 +76,8 @@
     zsh
     docker
   ];
+
+  virtualisation.docker.enable = true;
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
