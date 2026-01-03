@@ -10,8 +10,12 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
-      reload-nix = "sudo nixos-rebuild --flake ~/nix-config#octane switch";
-      upgrade-nix = "sudo nixos-rebuild switch --upgrade";
+      reload-nix = "sudo nixos-rebuild switch --flake ~/nix-config#octane";
+      upgrade-nix =
+        "sudo nixos-rebuild switch --flake ~/nix-config#octane --upgrade";
+      rollback-nix =
+        "sudo nixos-rebuild switch --flake ~/nix-config#octane --rollback";
+      vim = "nvim";
     };
     initContent = ''
       # Load Cargo environment if present
@@ -42,9 +46,6 @@
       # --- fzf integration (Nix version) ---
       source ${pkgs.fzf}/share/fzf/key-bindings.zsh
       source ${pkgs.fzf}/share/fzf/completion.zsh
-
-      # --- Aliases ---
-      alias vim=nvim
 
       # --- Starship prompt ---
       eval "$(starship init zsh)"
