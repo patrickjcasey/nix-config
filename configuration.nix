@@ -57,6 +57,7 @@
       tmux
       killall
       biome
+      claude-code
     ];
     shell = pkgs.zsh;
   };
