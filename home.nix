@@ -62,6 +62,13 @@
     settings.user.email = "patrick.casey1@outlook.com";
     settings.init.defaultBranch = "main";
     settings.core.editor = "nvim";
+    settings.push.autoSetupRemote = true;
+    settings.push.default = "current";
+    settings.alias.wt = "worktree";
+    settings.alias.wtb =
+      "!f() { git branch -f $1 origin/$1; git worktree add $1 $1; }; f";
+    settings.alias.wtr =
+      "!f() { git worktree remove -f $1; git branch -D $1; }; f";
   };
 
   programs.fzf = {
