@@ -58,6 +58,7 @@
       killall
       biome
       claude-code
+      spotify
     ];
     shell = pkgs.zsh;
   };
