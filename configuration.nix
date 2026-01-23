@@ -59,6 +59,7 @@
       biome
       claude-code
       spotify
+      signal-desktop
     ];
     shell = pkgs.zsh;
   };
