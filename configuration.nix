@@ -60,6 +60,7 @@
       claude-code
       spotify
       signal-desktop
+      btop
     ];
     shell = pkgs.zsh;
   };
