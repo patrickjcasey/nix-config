@@ -37,7 +37,7 @@
   programs.zsh.enable = true;
   users.users.trick = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [ "wheel" "docker" "wireshark" ];
     packages = with pkgs; [
       tree
       gcc
@@ -61,6 +61,9 @@
       spotify
       signal-desktop
       btop
+      tshark
+      wireshark
+      marksman
     ];
     shell = pkgs.zsh;
   };
