@@ -64,6 +64,8 @@
       tshark
       wireshark
       marksman
+      pyright
+      cargo-msrv
     ];
     shell = pkgs.zsh;
   };
