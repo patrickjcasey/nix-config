@@ -66,6 +66,7 @@
       marksman
       pyright
       cargo-msrv
+      uv
     ];
     shell = pkgs.zsh;
   };
