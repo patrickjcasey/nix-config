@@ -15,9 +15,11 @@
 
   outputs = { self, nixpkgs, home-manager, claude-code, ... }: {
     nixosConfigurations.octane = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
       modules = [
-        { nixpkgs.overlays = [ claude-code.overlays.default ]; }
+        {
+          nixpkgs.hostPlatform = "x86_64-linux";
+          nixpkgs.overlays = [ claude-code.overlays.default ];
+        }
         ./configuration.nix
         home-manager.nixosModules.home-manager
         {
