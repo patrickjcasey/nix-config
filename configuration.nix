@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
   imports = [ ./hardware-configuration.nix ];
@@ -17,7 +22,9 @@
 
   services.xserver = {
     enable = true;
-    desktopManager = { xterm.enable = false; };
+    desktopManager = {
+      xterm.enable = false;
+    };
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
@@ -37,7 +44,11 @@
   programs.zsh.enable = true;
   users.users.trick = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "wireshark" ];
+    extraGroups = [
+      "wheel"
+      "docker"
+      "wireshark"
+    ];
     packages = with pkgs; [
       tree
       gcc
@@ -67,6 +78,7 @@
       pyright
       cargo-msrv
       uv
+      zoom-us
     ];
     shell = pkgs.zsh;
   };
@@ -91,15 +103,17 @@
 
   # enable dynamically linked executables
   programs.nix-ld.enable = true;
-  programs.nix-ld.libraries = with pkgs;
-    [
-      # Add any missing dynamic libraries for unpackaged programs
-      # here, NOT in environment.systemPackages
-    ];
+  programs.nix-ld.libraries = with pkgs; [
+    # Add any missing dynamic libraries for unpackaged programs
+    # here, NOT in environment.systemPackages
+  ];
 
   fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   system.stateVersion = "25.05";
 
 }
