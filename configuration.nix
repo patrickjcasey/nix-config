@@ -30,7 +30,7 @@
       extraPackages = with pkgs; [
         rofi
         i3status
-        polybar
+        (polybar.override { i3Support = true; })
         xrandr
         feh
         picom
