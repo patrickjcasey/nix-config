@@ -4,17 +4,17 @@
   home.username = "trick";
   home.homeDirectory = "/home/trick";
   home.stateVersion = "25.05";
-  programs.bash = { enable = true; };
+  programs.bash = {
+    enable = true;
+  };
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     shellAliases = {
       reload-nix = "sudo nixos-rebuild switch --flake ~/nix-config#octane";
-      upgrade-nix =
-        "sudo nixos-rebuild switch --flake ~/nix-config#octane --upgrade";
-      rollback-nix =
-        "sudo nixos-rebuild switch --flake ~/nix-config#octane --rollback";
+      upgrade-nix = "sudo nixos-rebuild switch --flake ~/nix-config#octane --upgrade";
+      rollback-nix = "sudo nixos-rebuild switch --flake ~/nix-config#octane --rollback";
       vim = "nvim";
     };
     initContent = ''
@@ -65,12 +65,9 @@
     settings.push.autoSetupRemote = true;
     settings.push.default = "current";
     settings.alias.wt = "worktree";
-    settings.alias.wtb =
-      "!f() { git branch -f $1 origin/$1; git worktree add $1 $1; }; f";
-    settings.alias.wtr =
-      "!f() { git worktree remove -f $1; git branch -D $1; }; f";
-    settings.alias.wtnew = ''
-      !f() { dir=$(basename "$1" .git); mkdir -p "$dir" && git clone --bare "$1" "$dir/.bare" && echo "gitdir: ./.bare" > "$dir/.git" && git -C "$dir/.bare" config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' && git -C "$dir/.bare" fetch origin; }; f'';
+    settings.alias.wtb = "!f() { git branch -f $1 origin/$1; git worktree add $1 $1; }; f";
+    settings.alias.wtr = "!f() { git worktree remove -f $1; git branch -D $1; }; f";
+    settings.alias.wtnew = ''!f() { dir=$(basename "$1" .git); mkdir -p "$dir" && git clone --bare "$1" "$dir/.bare" && echo "gitdir: ./.bare" > "$dir/.git" && git -C "$dir/.bare" config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' && git -C "$dir/.bare" fetch origin; }; f'';
   };
 
   programs.fzf = {
@@ -86,5 +83,7 @@
     enable = true;
     defaultEditor = true;
     vimAlias = true;
+    withRuby = false;
+    withPython3 = false;
   };
 }
