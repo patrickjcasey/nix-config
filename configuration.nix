@@ -16,7 +16,7 @@
   networking.hostName = "octane";
   networking.networkmanager.enable = true;
 
-  time.timeZone = "America/New_York";
+  time.timeZone = "America/Phoenix";
 
   nixpkgs.config.allowUnfree = true;
 
