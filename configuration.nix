@@ -94,6 +94,7 @@
       cargo-msrv
       uv
       zoom-us
+      gh
     ];
     shell = pkgs.zsh;
   };
