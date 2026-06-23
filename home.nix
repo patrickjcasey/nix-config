@@ -68,6 +68,10 @@
     settings.alias.wtb = "!f() { git branch -f $1 origin/$1; git worktree add $1 $1; }; f";
     settings.alias.wtr = "!f() { git worktree remove -f $1; git branch -D $1; }; f";
     settings.alias.wtnew = ''!f() { dir=$(basename "$1" .git); mkdir -p "$dir" && git clone --bare "$1" "$dir/.bare" && echo "gitdir: ./.bare" > "$dir/.git" && git -C "$dir/.bare" config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*' && git -C "$dir/.bare" fetch origin; }; f'';
+    settings.gpg.format = "ssh";
+    settings.user.signingKey = "~/.ssh/id_ed25519.pub";
+    settings.commit.gpgSign = true;
+    settings.tag.gpgSign = true;
   };
 
   programs.fzf = {
