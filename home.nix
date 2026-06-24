@@ -83,11 +83,4 @@
   programs.fastfetch.enable = true;
   programs.opencode.enable=true;
 
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    withRuby = false;
-    withPython3 = false;
-  };
 }
