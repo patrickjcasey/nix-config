@@ -93,6 +93,8 @@
       pyright
       cargo-msrv
       uv
+      ruff
+      ty
       zoom-us
       gh
     ];
