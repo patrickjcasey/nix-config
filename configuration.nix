@@ -64,40 +64,7 @@
       "docker"
       "wireshark"
     ];
-    packages = with pkgs; [
-      tree
-      gcc
-      clang
-      lazygit
-      zoxide
-      starship
-      rustup
-      nodejs_latest
-      bun
-      protobuf
-      buf
-      gnumake
-      ghostty
-      cmake
-      trunk
-      tmux
-      killall
-      biome
-      claude-code
-      spotify
-      signal-desktop
-      btop
-      tshark
-      wireshark
-      marksman
-      pyright
-      cargo-msrv
-      uv
-      ruff
-      ty
-      zoom-us
-      gh
-    ];
+    # User packages are managed by home-manager; see ./machines/octane.nix.
     shell = pkgs.zsh;
   };
 

@@ -1,5 +1,5 @@
 {
-  description = "NixOS Configuration";
+  description = "NixOS + macOS Configuration";
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
@@ -11,11 +11,18 @@
 
   outputs =
     {
-      self,
       nixpkgs,
       home-manager,
       ...
     }:
+    let
+      pkgsFor =
+        system:
+        import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+    in
     {
       nixosConfigurations.octane = nixpkgs.lib.nixosSystem {
         modules = [
@@ -25,11 +32,17 @@
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.trick = import ./home.nix;
+              users.trick = import ./machines/octane.nix;
               backupFileExtension = "backup";
             };
           }
         ];
+      };
+
+      # Standalone home-manager: `home-manager switch --flake .#h3-mbp`
+      homeConfigurations.h3-mbp = home-manager.lib.homeManagerConfiguration {
+        pkgs = pkgsFor "aarch64-darwin";
+        modules = [ ./machines/h3-mbp.nix ];
       };
     };
 }
