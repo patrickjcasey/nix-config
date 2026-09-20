@@ -81,6 +81,4 @@
 
   programs.vscode.enable = true;
   programs.fastfetch.enable = true;
-  programs.opencode.enable=true;
-
 }
