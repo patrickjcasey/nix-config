@@ -97,6 +97,7 @@
       ty
       zoom-us
       gh
+      t3code
     ];
     shell = pkgs.zsh;
   };
