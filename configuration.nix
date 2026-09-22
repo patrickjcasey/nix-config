@@ -15,6 +15,8 @@
 
   networking.hostName = "octane";
   networking.networkmanager.enable = true;
+  # trust traffic on the LAN
+  networking.firewall.trustedInterfaces = [ "eno2" ];
 
   time.timeZone = "America/Phoenix";
 
