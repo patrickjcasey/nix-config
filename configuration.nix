@@ -99,7 +99,17 @@
       ty
       zoom-us
       gh
-      t3code
+      # nixpkgs sets dontPatchELF, so node-pty's prebuilt pty.node (new in
+      # 0.0.45) can't find libstdc++ and the backend server crashes on start.
+      (t3code.override {
+        t3code-unwrapped = t3code.unwrapped.overrideAttrs (old: {
+          postFixup = (old.postFixup or "") + ''
+            find "$out"/libexec/t3code -path '*/node-pty/prebuilds/linux-x64/pty.node' \
+              -exec ${lib.getExe patchelf} --add-rpath ${lib.makeLibraryPath [ stdenv.cc.cc.lib ]} {} +
+          '';
+        });
+      })
+      herdr
     ];
     shell = pkgs.zsh;
   };

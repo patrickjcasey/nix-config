@@ -4,6 +4,7 @@
   home.username = "trick";
   home.homeDirectory = "/home/trick";
   home.stateVersion = "25.05";
+  imports = [ ./dictation.nix ];
   programs.bash = {
     enable = true;
   };
