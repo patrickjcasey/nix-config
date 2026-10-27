@@ -132,8 +132,6 @@
     ripgrep
     python3
     unzip
-    zsh
-    docker
   ];
 
   virtualisation.docker.enable = true;
