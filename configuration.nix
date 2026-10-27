@@ -9,7 +9,6 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.enable = true;
-  # keep /boot (1G) from filling up with old kernels
   boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -115,6 +114,12 @@
 
   programs.firefox.enable = true;
 
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    vimAlias = true;
+  };
+
   # creates the wireshark group and a dumpcap wrapper so captures work without root
   programs.wireshark = {
     enable = true;
@@ -122,8 +127,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vim
-    neovim
     wget
     curl
     stow

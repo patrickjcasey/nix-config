@@ -16,7 +16,6 @@
       reload-nix = "sudo nixos-rebuild switch --flake ~/nix-config#octane";
       upgrade-nix = "sudo nixos-rebuild switch --flake ~/nix-config#octane --upgrade";
       rollback-nix = "sudo nixos-rebuild switch --flake ~/nix-config#octane --rollback";
-      vim = "nvim";
     };
     history = {
       path = "$HOME/.zsh_history";
