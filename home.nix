@@ -18,35 +18,32 @@
       rollback-nix = "sudo nixos-rebuild switch --flake ~/nix-config#octane --rollback";
       vim = "nvim";
     };
+    history = {
+      path = "$HOME/.zsh_history";
+      size = 100000;
+      save = 100000;
+      append = true;
+      share = true;
+      extended = true;
+      ignoreDups = true;
+      ignoreAllDups = true;
+      ignoreSpace = true;
+      expireDuplicatesFirst = true;
+      findNoDups = true;
+      saveNoDups = true;
+    };
+    setOptions = [
+      "HIST_REDUCE_BLANKS"
+      "HIST_VERIFY"
+    ];
     initContent = ''
       # Load Cargo environment if present
       [[ -f ~/.cargo/env ]] && source $HOME/.cargo/env
-
-      # --- History options ---
-      setopt HIST_EXPIRE_DUPS_FIRST
-      setopt HIST_IGNORE_DUPS
-      setopt HIST_IGNORE_ALL_DUPS
-      setopt HIST_IGNORE_SPACE
-      setopt HIST_FIND_NO_DUPS
-      setopt HIST_SAVE_NO_DUPS
-      setopt SHARE_HISTORY
-      setopt HIST_REDUCE_BLANKS
-      setopt INC_APPEND_HISTORY
-      setopt EXTENDED_HISTORY
-      setopt HIST_VERIFY
-      setopt appendhistory
-      HISTFILE=~/.zsh_history
-      HISTSIZE=100000
-      SAVEHIST=100000
 
       # --- Environment variables ---
       export XDG_CONFIG_HOME=$HOME/.config
       export DOTFILES=$HOME/.dotfiles
       export PATH="$HOME/.cargo/bin:$HOME/.rustup/bin:$PATH"
-
-      # --- fzf integration (Nix version) ---
-      source ${pkgs.fzf}/share/fzf/key-bindings.zsh
-      source ${pkgs.fzf}/share/fzf/completion.zsh
 
       # --- Starship prompt ---
       eval "$(starship init zsh)"
