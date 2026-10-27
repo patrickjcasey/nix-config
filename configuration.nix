@@ -90,7 +90,6 @@
       signal-desktop
       btop
       tshark
-      wireshark
       marksman
       pyright
       cargo-msrv
@@ -115,6 +114,12 @@
   };
 
   programs.firefox.enable = true;
+
+  # creates the wireshark group and a dumpcap wrapper so captures work without root
+  programs.wireshark = {
+    enable = true;
+    package = pkgs.wireshark;
+  };
 
   environment.systemPackages = with pkgs; [
     vim
