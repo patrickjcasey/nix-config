@@ -73,8 +73,6 @@
       gcc
       clang
       lazygit
-      zoxide
-      starship
       rustup
       nodejs_latest
       bun

@@ -39,19 +39,29 @@
     initContent = ''
       # Load Cargo environment if present
       [[ -f ~/.cargo/env ]] && source $HOME/.cargo/env
-
-      # --- Environment variables ---
-      export XDG_CONFIG_HOME=$HOME/.config
-      export DOTFILES=$HOME/.dotfiles
-      export PATH="$HOME/.cargo/bin:$HOME/.rustup/bin:$PATH"
-
-      # --- Starship prompt ---
-      eval "$(starship init zsh)"
-      export STARSHIP_CONFIG=$HOME/.config/starship/config.toml
-
-      # --- zoxide ---
-      eval "$(zoxide init zsh --cmd cd)"
     '';
+  };
+
+  home.sessionVariables = {
+    XDG_CONFIG_HOME = "$HOME/.config";
+    DOTFILES = "$HOME/.dotfiles";
+  };
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+    "$HOME/.rustup/bin"
+  ];
+
+  programs.starship = {
+    enable = true;
+    # config lives in the dotfiles repo; no settings here, so nothing is generated
+    configPath = "${config.xdg.configHome}/starship/config.toml";
+  };
+  programs.zoxide = {
+    enable = true;
+    options = [
+      "--cmd"
+      "cd"
+    ];
   };
 
   programs.git = {
