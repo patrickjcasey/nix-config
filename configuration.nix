@@ -9,6 +9,8 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.enable = true;
+  # keep /boot (1G) from filling up with old kernels
+  boot.loader.systemd-boot.configurationLimit = 10;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -151,6 +153,12 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
   system.stateVersion = "25.05";
 
 }
